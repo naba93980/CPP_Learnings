@@ -1,0 +1,133 @@
+
+Generics is the idea to allow type (Integer, String, … etc and user-defined types) to be a parameter to methods, classes and interfaces.
+For example, classes like an array, map, etc, which can be used using generics very efficiently. We can use them for any type.
+
+The method of Generic Programming is implemented to increase the efficiency of the code. Generic Programming enables the programmer to 
+write a general algorithm which will work with all data types. It eliminates the need to create different algorithms if the data type 
+is an integer, string or a character.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+The advantages of Generic Programming are -
+
+Code Reusability
+Avoid Function Overloading
+Once written it can be used for multiple times and cases.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Generics can be implemented in C++ using Templates. Template is a simple and yet very powerful tool in C++. 
+The simple idea is to pass data type as a parameter so that we don’t need to write the same code for different data types. 
+For example, a software company may need sort() for different data types. Rather than writing and maintaining the multiple codes, 
+we can write one sort() and pass data type as a parameter.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Generic Functions using Template:
+
+We write a generic function that can be used for different data types. Examples of function templates are 
+sort(), max(), min(), printArray()
+
+#include <iostream>
+using namespace std;
+
+// One function works for all data types.
+// This would work even for user defined types
+// if operator '>' is overloaded
+template <typename T>
+
+T myMax(T x, T y)
+{
+	return (x > y) ? x : y;
+}
+
+int main()
+{
+
+	// Call myMax for int
+	cout << myMax<int>(3, 7) << endl;
+
+	// call myMax for double
+	cout << myMax<double>(3.0, 7.0) << endl;
+
+	// call myMax for char
+	cout << myMax<char>('g', 'e') << endl;
+
+	return 0;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Generic Class using Template:
+
+Like function templates, class templates are useful when a class defines something that is independent of data type. 
+Can be useful for classes like LinkedList, binary tree, Stack, Queue, Array, etc.
+
+Following is a simple example of template Array class.
+
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class Array {
+private:
+	T* ptr;
+	int size;
+
+public:
+	Array(T arr[], int s);
+	void print();
+};
+
+template <typename T>
+Array<T>::Array(T arr[], int s)
+{
+	ptr = new T[s];
+	size = s;
+	for (int i = 0; i < size; i++)
+		ptr[i] = arr[i];
+}
+
+template <typename T>
+void Array<T>::print()
+{
+	for (int i = 0; i < size; i++)
+		cout << " " << *(ptr + i);
+	cout << endl;
+}
+
+int main()
+{
+	int arr[5] = { 1, 2, 3, 4, 5 };
+	Array<int> a(arr, 5);
+	a.print();
+	return 0;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Working with multi-type Generics:
+
+We can pass more than one data types as arguments to templates. The following example demonstrates the same.
+
+#include <iostream>
+using namespace std;
+
+template <class T, class U>
+class A {
+	T x;
+	U y;
+
+public:
+	A()
+	{
+		cout << "Constructor Called" << endl;
+	}
+};
+
+int main()
+{
+	A<char, char> a;
+	A<int, double> b;
+	return 0;
+}

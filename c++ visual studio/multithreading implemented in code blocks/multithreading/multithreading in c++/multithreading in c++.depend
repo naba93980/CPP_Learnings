@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1643308434 source:d:\users\nabajyoti\c++\c++ codeblocks\multithreading in c++\main.cpp
+	<iostream>
+	<thread>
+

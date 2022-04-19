@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1643381612 source:d:\users\nabajyoti\c++\c++ codeblocks\multithreading\join, detach, joinable in multithreading in c++11\main.cpp
+	<iostream>
+	<thread>
+	<chrono>
+

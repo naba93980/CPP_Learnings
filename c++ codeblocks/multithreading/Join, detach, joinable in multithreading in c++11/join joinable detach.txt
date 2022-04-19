@@ -1,0 +1,51 @@
+std::thread::joinable
+
+Returns whether the thread object is joinable.
+
+A thread object is joinable if it represents a thread of execution.
+
+A thread object is not joinable in any of these cases:
+
+if it was default-constructed.
+if it has been moved from (either constructing another thread object, or assigning to it).
+if either of its members join or detach has been called.
+
+
+Parameters
+none
+
+Return value
+true if the thread is joinable.
+false otherwise.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+std::thread::join
+void join();
+
+Join thread
+The function returns when the thread execution has completed.
+
+This synchronizes the moment this function returns with the completion of all the operations in the thread: This blocks the execution of the thread that calls this function until the function called on construction returns (if it hasn't yet).
+
+After a call to this function, the thread object becomes non-joinable and can be destroyed safely.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+std::thread::detach
+
+void detach();
+
+Detach thread
+
+Detaches the thread represented by the object from the calling thread, allowing them to execute independently from each other.
+
+Both threads continue without blocking nor synchronizing in any way. Note that when either one ends execution, its resources are released.
+
+After a call to this function, the thread object becomes non-joinable and can be destroyed safely.
+
+Parameters
+none
+
+Return value
+none

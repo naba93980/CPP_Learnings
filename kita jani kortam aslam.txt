@@ -1,0 +1,16 @@
+~template 
+~STl
+~lambda function in c++
+~type inference -
+	decltype() in c++.
+	auto keyword in c++.
+	typeid().
+~<static_cast> in c++
+~<dynamic_cast> in c++
+~this pointer in constructor fuction
+~operator overloading
+~inintializsation list
+~why no static virtual function?
+~passing function as arguments to another function in c++
+~outer block cannot access inner variable in c++
+~multithreading synchronous bla bla bla in c++.
